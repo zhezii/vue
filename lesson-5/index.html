@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络篇 Axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>名称：{{info.name}}</div>
+    <div>地址：{{info.address.country}}-{{info.address.city}}-{{info.address.street}}</div>
+    <div>链接：<a v-bind:href="info.url" target="_blank">{{info.url}}</a></div>
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+       el: "#app",
+       data() {
+           return {
+               info: {
+                   name: null,
+                   address: {
+                       country: null,
+                       city: null,
+                       street: null
+                   },
+                   url: null
+               },
+           }
+       },
+       mounted() {
+           axios
+               .get('data.json')
+               .then(response => (this.info = response.data));
+       }
+    });
+</script>
+</body>
+</html>
