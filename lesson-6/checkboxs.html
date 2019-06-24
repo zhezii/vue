@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据绑定——多选框</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+</head>
+<body>
+<div id="vue">
+    <input type="checkbox" v-model="checkedName" id="faker" value="faker">
+    <label for="faker">faker</label>
+    <input type="checkbox" v-model="checkedName" id="uzi" value="uzi">
+    <label for="uzi">uzi</label>
+    <input type="checkbox" v-model="checkedName" id="clearlove" value="clearlove">
+    <label for="clearlove">clearlove</label>
+    <input type="checkbox" v-model="checkedName" id="ming" value="ming">
+    <label for="ming">ming</label>
+    <span>选中的值：{{checkedName}}</span>
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+       el: "#vue",
+       data: {
+           checkedName: []
+       }
+    });
+</script>
+</body>
+</html>
