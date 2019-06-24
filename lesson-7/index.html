@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>布局篇 组件基础</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+</head>
+<body>
+<div id="vue">
+    <ul>
+        <my-component-li v-for="item in items" v-bind:item="item"></my-component-li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    //先注册组件
+    Vue.component('my-component-li',{
+        props: ['item'],
+        template: '<li>Hello {{item}}</li>'
+    });
+
+    //再实例化Vue
+    var vm = new Vue({
+       el: '#vue',
+       data: {
+           items: ["张三","李四","王五"]
+       }
+    });
+</script>
+</body>
+</html>
