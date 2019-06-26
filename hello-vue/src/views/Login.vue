@@ -46,7 +46,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             //使用vue-router路由到指定页面，该方式称之为编程式导航
-            this.$router.push("/main");
+            this.$router.push({name: 'Main', params: {username: this.form.username}});
           } else {
             this.dialogVisible = true;
             return false;
