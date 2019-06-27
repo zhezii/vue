@@ -7,10 +7,15 @@ import Main from '../views/Main'
 //用于嵌套的路由组件
 import UserProfile from '../views/user/Profile'
 import UserList from '../views/user/List'
+import NotFound from '../views/NotFound'
+
+import axios from 'axios'
+Vue.prototype.axios = axios;
 
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       //登录页
@@ -28,6 +33,10 @@ export default new Router({
         {path: '/user/profile/:id', name: 'UserProfile', component: UserProfile, props: true},
         {path: '/user/list', component: UserList},
       ]
+    },
+    {
+      path: "*",
+      component: NotFound
     }
   ]
 });

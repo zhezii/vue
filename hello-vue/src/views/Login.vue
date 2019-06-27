@@ -45,6 +45,7 @@
         //为表单绑定验证功能
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            sessionStorage.setItem('isLogin','true');
             //使用vue-router路由到指定页面，该方式称之为编程式导航
             this.$router.push({name: 'Main', params: {username: this.form.username}});
           } else {
